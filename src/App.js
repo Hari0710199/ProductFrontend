@@ -1,4 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import StartPage from "./Startpage";
+import Dashboard from "./DashBoard";
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<StartPage setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
+/*import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
@@ -88,4 +108,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
