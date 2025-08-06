@@ -14,7 +14,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/product/login", formData);
+      const response = await axios.post("http://localhost:8080/products/login", formData);
       setMessage(response.data);
       navigate("/dashboard"); // 🚀 Redirect after login
     } catch (err) {
